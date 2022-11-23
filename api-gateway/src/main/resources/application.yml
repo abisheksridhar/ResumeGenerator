@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: RESUME_MAKER-API-GATEWAY
+
+  cloud:
+    discovery:
+      enabled: true
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+      discovery:
+        locator: true
+      routes:
+        - id: USER-SERVICE
+          uri: http://localhost:4000/
+          predicates:
+            - Path=/user/**
+
+
+server:
+  port: 5000
+
+

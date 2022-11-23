@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: resume-maker-eureka-server
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: true
+    instance:
+      hostname: localhost
+    instance-info-replication-interval-seconds: 5
+
+server:
+  port: 8761
